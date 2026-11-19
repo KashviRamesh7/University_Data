@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>University Student Performance Analytics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap"><h1>University Student Performance Analytics</h1>
+      <span class="tag">University-wise summary</span></div>
+  </header>
+
+  <main class="wrap">
+    <div id="toast" class="toast" role="status"></div>
+
+    <section class="card">
+      <h2>Receive Student Records from API</h2>
+      <p class="muted">Student records from multiple universities arrive through an API. Paste the API URL
+        (it must return a JSON array of <code>{studentId, university, score}</code>) and fetch. The backend
+        calls the API, validates every record and <strong>replaces all current records</strong> with the fetched ones.</p>
+      <div class="api-row">
+        <input id="apiUrl" type="text" placeholder="Paste API URL, e.g. https://raw.githubusercontent.com/user/repo/main/students.json" aria-label="API URL">
+        <button id="fetchBtn" class="btn primary">Fetch Student Records</button>
+      </div>
+      <p id="fetchMsg" class="form-msg" role="status"></p>
+    </section>
+
+    <div class="grid2">
+      <section class="card">
+        <h2>Add Student Record</h2>
+        <form id="studentForm" novalidate>
+          <label for="studentId">Student ID</label>
+          <input id="studentId" type="number" min="1" step="1" placeholder="e.g. 1">
+          <label for="university">University name</label>
+          <input id="university" type="text" placeholder="e.g. CHRIST">
+          <label for="score">Score (0–100)</label>
+          <input id="score" type="number" min="0" max="100" step="any" placeholder="e.g. 85">
+          <p id="formMsg" class="form-msg" role="alert"></p>
+          <button type="submit" class="btn primary">Add Student</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="row-between"><h2>Student Records</h2>
+          <button id="clearBtn" class="btn ghost small">Clear all</button></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Student ID</th><th>University Name</th><th>Score</th><th></th></tr></thead>
+            <tbody id="studentRows"></tbody>
+          </table>
+        </div>
+        <p id="emptyMsg" class="muted">No student records yet.</p>
+        <button id="summaryBtn" class="btn primary">Generate University Summary</button>
+      </section>
+    </div>
+
+    <section id="dashboard" class="card hidden">
+      <h2>University Performance Dashboard</h2>
+      <div class="stats" id="cards"></div>
+      <div class="grid2">
+        <div><h3>University-wise performance</h3>
+          <div class="table-wrap"><table>
+            <thead><tr><th>University</th><th>Total students</th><th>Average score</th><th>Highest score</th></tr></thead>
+            <tbody id="summaryRows"></tbody></table></div></div>
+        <div><h3>Average score comparison</h3>
+          <div class="chart-box"><canvas id="chart"></canvas></div>
+          <p id="chartNote" class="muted hidden">Chart.js could not be loaded (check your internet connection).</p></div>
+      </div>
+      <h3>Summary JSON</h3>
+      <pre id="summaryJson"></pre>
+    </section>
+
+    <section class="card">
+      <div class="row-between"><h2>Stored University Data (JSON file)</h2>
+        <button id="refreshStoredBtn" class="btn ghost small">Refresh</button></div>
+      <p class="muted">Student records and the university summary are saved in
+        <code>data/university_data.json</code>. This is the file content:</p>
+      <pre id="storedJson" class="stored-pre">{}</pre>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+{
+  "updatedAt": "2026-11-19T11:07:37+00:00",
+  "students": [
+    {
+      "studentId": 1,
+      "university": "CHRIST",
+      "score": 85
+    },
+    {
+      "studentId": 2,
+      "university": "CHRIST",
+      "score": 70
+    },
+    {
+      "studentId": 3,
+      "university": "ABC",
+      "score": 90
+    },
+    {
+      "studentId": 4,
+      "university": "ABC",
+      "score": 60
+    },
+    {
+      "studentId": 5,
+      "university": "CHRIST",
+      "score": 95
+    },
+    {
+      "studentId": 6,
+      "university": "XYZ",
+      "score": 88
+    },
+    {
+      "studentId": 7,
+      "university": "XYZ",
+      "score": 92.5
+    },
+    {
+      "studentId": 8,
+      "university": "XYZ",
+      "score": 71
+    },
+    {
+      "studentId": 9,
+      "university": "PQR",
+      "score": 66
+    },
+    {
+      "studentId": 10,
+      "university": "PQR",
+      "score": 81
+    },
+    {
+      "studentId": 11,
+      "university": "ABC",
+      "score": 75
+    },
+    {
+      "studentId": 12,
+      "university": "CHRIST",
+      "score": 78
+    },
+    {
+      "studentId": 13,
+      "university": "PQR",
+      "score": 90
+    },
+    {
+      "studentId": 14,
+      "university": "XYZ",
+      "score": 64
+    },
+    {
+      "studentId": 15,
+      "university": "ABC",
+      "score": 82
+    }
+  ],
+  "summary": {
+    "CHRIST": {
+      "totalStudents": 4,
+      "averageScore": 82.0,
+      "highestScore": 95
+    },
+    "ABC": {
+      "totalStudents": 4,
+      "averageScore": 76.75,
+      "highestScore": 90
+    },
+    "XYZ": {
+      "totalStudents": 4,
+      "averageScore": 78.88,
+      "highestScore": 92.5
+    },
+    "PQR": {
+      "totalStudents": 3,
+      "averageScore": 79.0,
+      "highestScore": 90
+    }
+  },
+  "overall": {
+    "totalUniversities": 4,
+    "totalStudents": 15,
+    "overallAverage": 79.17,
+    "highestScore": 95
+  }
+}
